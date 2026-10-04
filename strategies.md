@@ -1,11 +1,11 @@
 # Everdell Strategy Guide
 
-This guide is based on the rules in `instruction.md` and the card effects in `cards.json`. It gives two kinds of advice:
+This guide follows the project source order in `instruction.md`: `cards.json` is the canonical card catalog, while `instruction.md` supplies gameplay rules and constraints. It gives two kinds of advice:
 
 - **High-ceiling plans:** strong when the required cards, resources, and Events line up.
 - **Universal plans:** reliable when the Meadow, starting hand, or opponents do not cooperate.
 
-The current data does not include card costs, printed point values, card colors, unique/common status, or Event requirements. The rankings below are therefore strategic, not a mathematically proven maximum.
+`cards.json` supplies card color, Common/Unique rarity, costs, printed `basePoints`, city spaces, structured effects, end-game scoring, quantities, and paired occupation cards. It does not provide Event requirements or rewards or a full game state. Strategic rankings and score estimates are therefore conditional, not a mathematically proven maximum. Follow the documented quantity discrepancy rather than treating card counts as verified odds.
 
 ## Core Principle
 
@@ -23,12 +23,12 @@ Do not judge a card only by its printed points. Judge it by its total value over
 
 **Goal:** complete several Events, then amplify them with the King.
 
-The King is the payoff card: it is worth 1 point per Basic Event and 2 points per Special Event. It is excellent only when the city can realistically meet multiple Event requirements. Do not play the King merely because it is available.
+The King is a Unique, 4-point Prosperity Critter costing 6 berries. Its end-game effect adds 1 point per Basic Event and 2 per Special Event achieved. It is excellent only when the city can realistically meet multiple Event requirements. Since its bonus is scored at game end, it does not need to be played before claiming Events.
 
 **Build around it with:**
 
-- **Queen:** play a card worth up to 3 base points for free when placing a worker.
-- **Inn:** play a Meadow card for 3 fewer resources.
+- **Queen:** each worker placement there may play a card from hand or Meadow worth up to 3 base points for free.
+- **Inn:** when placing a worker there, play a Meadow card for 3 fewer resources of your choice.
 - **Cemetery:** play one revealed card for free, while also creating a permanent worker commitment.
 - **Ranger:** move a deployed worker and unlock the second Dungeon cell.
 - **Wanderer, Teacher, Fair Grounds, Historian, and Ruins:** increase access to cards and improve the chance of finding Event-enabling pieces.
@@ -39,7 +39,7 @@ The King is the payoff card: it is worth 1 point per Basic Event and 2 points pe
 2. Build only the card types needed for the Events you can actually reach.
 3. Use free-play and draw effects to satisfy requirements without spending the whole game on raw resources.
 4. Claim the easiest Events first when another player could take them.
-5. Play the King early enough to benefit from its Event multiplier, but not so early that it occupies a space needed for the Event engine.
+5. Play the King when its 4 printed points and expected Event bonus justify its 6-berry cost and city space; Events achieved before playing the King still count.
 
 **Failure condition:** if two or more Event requirements are unavailable by late Summer, stop investing in the King and use its space and resources for direct points or production.
 
@@ -47,24 +47,26 @@ The King is the payoff card: it is worth 1 point per Basic Event and 2 points pe
 
 **Goal:** generate surplus berries and resources, then convert repeated production into points.
 
-The core engine is a Farm plus cards that either multiply production or convert the surplus:
+The core engine is early green Production plus cards that either increase resource output or convert surplus to points. Key catalog entries:
 
-- **Farm:** produces a berry when played and during Production.
-- **General Store:** produces 1 berry, or 2 berries when at least one Farm is present.
-- **Barge Toad:** produces 2 twigs per Farm when played and during Production.
-- **Chip Sweep:** activates any green Production card when played and during Production.
-- **Doctor:** converts up to 3 berries into point tokens.
-- **Woodcarver:** converts up to 3 twigs into point tokens.
-- **Monk:** gives up to 2 berries to an opponent for 2 point tokens per berry.
-- **Shepherd:** provides 3 berries and can repeat point tokens on the Chapel.
+| Card | Color / rarity | Base points | Cost | Engine effect |
+|---|---|---:|---|---|
+| Farm | Production / Common | 1 | 2 twigs, 1 resin | 1 berry on play and during Production |
+| General Store | Production / Common | 1 | 1 twig, 1 pebble | 1 berry, or 2 if you have a Farm |
+| Barge Toad | Production / Common | 1 | 2 berries | 2 twigs per Farm on play and during Production |
+| Chip Sweep | Production / Common | 2 | 3 berries | Activates one Production card on play and during Production |
+| Doctor | Production / Unique | 4 | 4 berries | May pay up to 3 berries for 1 point each on play and during Production |
+| Woodcarver | Production / Common | 2 | 2 berries | May pay up to 3 twigs for 1 point each on play and during Production |
+| Monk | Production / Unique | 0 | 1 berry | May give up to 2 berries to an opponent for 2 points each on play and during Production |
+| Shepherd | Traveler / Unique | 1 | 3 berries | On play: gain 3 berries and 1 point token per point token on your Chapel |
 
 **Execution:**
 
-1. Establish one or two production cards before adding point-conversion cards.
-2. Prefer production that will activate at least twice; a late production card may not repay its cost.
-3. Use Chip Sweep to duplicate the most valuable production card for the current resource shortage.
+1. Establish one or two green Production cards early. In the base game they activate when played and when Spring and Autumn Production activate; Summer draws cards instead.
+2. Add converters only when the resources can be paid. Do not spend the same resource more than once.
+3. Use Chip Sweep on a Production card whose effect is useful now; Chip Sweep activates that card, it does not independently grant resources.
 4. Convert excess berries or twigs before the game ends rather than leaving them unused.
-5. Take care not to overbuild Farms: every extra Farm must produce more value than the city space and resources it consumes.
+5. Weigh the Farm's 2-twig, 1-resin cost and one-space use against the remaining Production activations. Avoid overbuilding Farms.
 
 **Best use:** this is a strong answer when the Meadow supplies Farms, General Store, Barge Toad, Doctor, or Woodcarver, but Events are contested or unreliable.
 
@@ -74,20 +76,22 @@ The core engine is a Farm plus cards that either multiply production or convert 
 
 **Goal:** fill the city with the exact card classes that increase end-game bonuses.
 
-These cards reward density, so they must be treated as a package rather than isolated cards:
+These Unique Prosperity Constructions reward density, so treat them as a package rather than isolated cards:
 
-- **Castle:** 1 point for each Common Construction.
-- **Palace:** 1 point for each Unique Construction, including the Palace.
-- **School:** 1 point for each Common Critter.
-- **Theater:** 1 point for each Unique Critter.
+| Card | Base points | Cost | End-game bonus |
+|---|---:|---|---|
+| Castle | 4 | 2 twigs, 3 resin, 3 pebbles | 1 point per Common Construction |
+| Palace | 4 | 2 twigs, 3 resin, 3 pebbles | 1 point per Unique Construction, including itself |
+| School | 2 | 2 twigs, 2 resin | 1 point per Common Critter |
+| Theater | 3 | 3 twigs, 1 resin, 1 pebble | 1 point per Unique Critter |
 
 **Execution:**
 
 1. Decide whether the available cards favor Constructions or Critters.
 2. Choose one primary multiplier and possibly one secondary multiplier. Chasing all four usually wastes spaces.
 3. Play the multiplier before the final cards it will score, unless a free-play opportunity makes the order clearly better.
-4. Use Courthouse when playing many Constructions; it returns a twig, resin, or pebble for each later Construction.
-5. Use Shopkeeper when playing many Critters; it returns a berry for each later Critter.
+4. Courthouse is a Unique, 2-point Governance Construction costing 1 twig, 1 resin, and 2 pebbles; it gains one twig, resin, or pebble after you play each other Construction.
+5. Shopkeeper is a Unique, 1-point Governance Critter costing 2 berries; it gains one berry after you play each other Critter.
 6. Use Palace or Castle only when enough matching Constructions are available. Use School or Theater only when enough matching Critters are available.
 
 **Space warning:** a multiplier card can be worth less than a normal point-producing card if the city lacks enough matching cards. Count the remaining empty spaces before committing.
@@ -96,10 +100,12 @@ These cards reward density, so they must be treated as a package rather than iso
 
 **Goal:** turn worker placements into points while preserving action efficiency.
 
-- **Monastery:** spend 2 resources for 4 points; the worker remains permanently. Monk unlocks the second room.
-- **Chapel:** place a point token, then draw 2 cards for each token on the Chapel.
-- **Clocktower:** begins with 3 point tokens and can activate a Basic or Forest location where you have a worker before season preparation.
-- **University:** trades one city card for its listed cost, one resource, and 1 point; it can also free a city space.
+| Card | Color / rarity | Base points | Cost | Worker / scoring effect |
+|---|---|---:|---|---|
+| Monastery | Destination / Unique | 1 | 1 twig, 1 resin, 1 pebble | Pay 2 resources for 4 points; worker stays permanently. A second worker requires Monk. |
+| Chapel | Destination / Unique | 2 | 2 twigs, 1 resin, 1 pebble | Place 1 point token and draw 2 cards per token on Chapel. |
+| Clocktower | Governance / Unique | 0 | 3 twigs, 1 pebble | Starts with 3 tokens; before season preparation, spend at most 1 to activate a Basic or Forest location where you have a worker. Remaining tokens score 1 each. |
+| University | Destination / Unique | 3 | 1 resin, 2 pebbles | Worker action discards one city card, refunds its printed cost, gains 1 resource and 1 point; point tokens on the discarded card are lost. |
 
 **Execution:**
 
@@ -117,12 +123,12 @@ This package is especially strong when the board has valuable worker locations a
 
 Important tools include:
 
-- **Queen:** one free card worth up to 3 base points.
-- **Inn:** one Meadow card for 3 fewer resources.
-- **Cemetery:** one free card from four revealed cards.
-- **Postal Pigeon:** one free revealed card worth up to 3 points.
-- **Innkeeper:** reduce a Critter cost by 3 berries, then discard the Innkeeper.
-- **Crane:** reduce a Construction cost by 3 resources, then discard the Crane.
+- **Queen:** Unique, 4-point Destination Critter costing 5 berries; worker action plays one card from hand or Meadow for free, with up to 3 base points.
+- **Inn:** Common, 2-point Destination Construction costing 2 twigs and 1 resin; worker action plays a Meadow card for 3 fewer resources of your choice.
+- **Cemetery:** Unique, 0-point Destination Construction costing 2 pebbles; worker action reveals 4 cards from deck/discard and plays one free, but the worker stays permanently.
+- **Postal Pigeon:** Common, 0-point Traveler Critter costing 2 berries; on play, reveal 2 cards and play one card worth up to 3 base points for free.
+- **Innkeeper:** Unique, 1-point Governance Critter costing 1 berry; discard it to reduce a Critter's cost by 3 berries.
+- **Crane:** Unique, 1-point Governance Construction costing 1 pebble; discard it to reduce a Construction's cost by 3 resources of your choice.
 - **Dungeon:** place a Critter beneath it to reduce a later card cost by 3; the prisoner no longer scores or occupies normal city status.
 - **Wanderer:** draws 3 cards without using a city space.
 - **Husband + Wife:** share one space, and the Wife is worth 3 points when paired; with a Farm, the Husband also produces a flexible resource during Production.
@@ -153,13 +159,13 @@ This plan is less explosive than a perfect King or multiplier build, but it perf
 ### Spring
 
 - Set up production and card draw.
-- Play cards that will activate again during the next Production bonus.
+- Green Production cards activate when played and again when Spring Production activates; cards already in the city can activate again in Autumn.
 - Do not rush expensive end-game multipliers before knowing which card classes are available.
 - Prepare as soon as the next worker and production activation are worth more than another weak action.
 
 ### Summer
 
-- Convert the Spring engine into a coherent package.
+- Summer is the card-draw season, not a green Production activation; use its draws and your existing engine to build a coherent package.
 - Use Queen, Inn, Cemetery, Crane, or Innkeeper to bypass a difficult cost.
 - Pursue Events once their requirements are visible and attainable.
 - Add the main multiplier only after confirming there are enough cards for it to score.
@@ -193,23 +199,18 @@ This plan is less explosive than a perfect King or multiplier build, but it perf
 - Holding resources for a future plan that cannot be completed.
 - Delaying season preparation after all useful actions are gone.
 
-## What Cannot Yet Be Optimized Numerically
+## Remaining Data Limits for Numerical Optimization
 
-The current `cards.json` contains names, broad categories, and descriptions, but it does not provide:
+`cards.json` now provides structured card colors, Common/Unique rarity, costs, printed points, spaces, prerequisites, effects, end-game scoring, quantities, and occupation pairings. Exact score optimization still requires:
 
-- resource costs;
-- printed base points;
-- card colors and activation timing as structured fields;
-- Common versus Unique status;
-- exact city-space rules for every card;
 - Basic and Special Event requirements and values;
 - Meadow, deck, discard, opponent, and worker state.
 
-Without these fields, no program can honestly calculate the exact maximum score or prove that one sequence is optimal. This guide therefore ranks strategic packages by effect synergy and reliability rather than by unsupported point totals.
+Structured effects encode the available card text and should be checked against the official rules before use in a legal-action simulator. The sourced quantities total 129, while the official rules state 128 cards. Preserve individual sourced quantities, but do not use them to calculate deck odds or assume the total is verified. Without Event data and a concrete game state, no program can honestly calculate the exact maximum score or prove that one sequence is optimal. Use strategic packages, conditional estimates, and explicit assumptions instead of unsupported precision.
 
-## Future Calculator or Simulator
+## Potential Calculator or Simulator Extensions
 
-To support exact optimization, enrich each card with fields like:
+The current card schema supports this shape:
 
 ```json
 {
@@ -218,13 +219,21 @@ To support exact optimization, enrich each card with fields like:
   "color": "Production",
   "rarity": "Common",
   "basePoints": 1,
-  "cost": {"berries": 0, "twigs": 3, "resin": 1, "pebbles": 0},
+  "cost": {"twigs": 2, "resin": 1},
   "spaces": 1,
   "prerequisites": [],
-  "effects": [],
-  "endGameScoring": []
+  "effects": [
+    {"trigger": "onPlay", "action": "gainResource", "resource": "berries", "amount": 1},
+    {"trigger": "production", "action": "gainResource", "resource": "berries", "amount": 1}
+  ],
+  "endGameScoring": [],
+  "quantity": 8,
+  "pairedCritter": ["Husband", "Wife"],
+  "description": "When played and during Production, gain 1 berry."
 }
 ```
+
+For example, the Farm entry costs 2 twigs and 1 resin and its structured effects award one berry when played and during Production. Do not replace sourced values with outdated illustrative data.
 
 The game-state model should include:
 

@@ -1,5 +1,17 @@
 # Everdell
 
+## Project Source of Truth
+
+Use these project files in this order when reconciling their content:
+
+1. [`cards.json`](cards.json) is the canonical card catalog for names, descriptions, resource costs, printed points, quantities, and paired occupation cards.
+2. This file summarizes gameplay rules and constraints used to interpret card effects.
+3. [`strategies.md`](strategies.md) provides strategic guidance derived from the catalog and rules.
+4. [`engine.md`](engine.md) defines the reusable analysis prompt.
+5. [`assumptions.md`](assumptions.md) contains illustrative scenario assumptions and estimates; it must not override the preceding files.
+
+If the card catalog and a rule summary appear inconsistent, preserve the catalog values, identify the conflict, and verify gameplay interpretation against the official rules instead of silently changing either source.
+
 ## Objective
 
 Build the most valuable woodland city by collecting resources, playing Critter and Construction cards, completing Events, and using workers efficiently. The player with the most points at the end wins.
@@ -78,7 +90,7 @@ You may prepare when all of your workers are deployed and you cannot, or do not 
 
 Players prepare for seasons independently; they do not wait for one another. The season order is **Spring, Summer, Autumn**. Autumn is the final season. Do not prepare for another season after Autumn.
 
-Season bonuses are shown on the Ever Tree. They add workers and may activate Production cards, draw cards, or allow other listed actions. Resolve all parts of the bonus when you enter the season.
+Season bonuses are shown on the Ever Tree. Resolve each season's listed bonus when you enter that season. In the base game, Spring and Autumn activate green Production cards; Summer grants card draws. A green Production card also activates immediately when played, but it does not receive activations for seasons that have already passed.
 
 ## Card Types
 
@@ -90,7 +102,19 @@ Cards have one of five colors and roles:
 - **Blue Governance:** Gives bonuses after certain cards are played or provides card discounts and related effects.
 - **Purple Prosperity:** Provides its base points and its listed end-game bonus.
 
-The complete scraped card effects are in [`cards.json`](cards.json).
+Card effects and base-game metadata are in [`cards.json`](cards.json). Every Critter and Construction includes its color, rarity when known, printed resource cost, `basePoints`, city `spaces`, `prerequisites`, structured `effects`, `endGameScoring`, quantity, and paired card where applicable. The cost object lists only nonzero resources; an omitted resource has a cost of zero. `basePoints` is the printed value, not points from effects or tokens. A cost of `{}` means no printed resource cost, as with Ruins. `spaces` is the card's ordinary city-space use; special shared-space, zero-space, and conditional rules are described by its card effects or text. `rarity: null` means the source did not specify Common or Unique.
+
+### Card Data Sources
+
+- Card rules text: [Dized's official Everdell rules](https://rules.dized.com/game/0GI6_zUiQh2U27DV_13LJw/).
+- Card costs, points, and paired cards: [Everdell card catalog](https://github.com/javipacheco/cards-counters-bgg-catalog/blob/main/games/everdell.json).
+- Base-deck quantities, points, and rarity cross-check: [EverdellScore card definitions](https://github.com/tadeaustria/EverdellScore/blob/main/src/deck.js).
+
+`quantity` is the sourced number of copies of that card in the base-game deck. `pairedBuilding` identifies a Critter's matching Construction; `pairedCritter` identifies the Construction's matching Critter. Farm's `pairedCritter` is an array because it pairs with both Husband and Wife. Ever Tree has no paired occupation Critter, so its `pairedCritter` is `null`; its description notes its separate ability to grant any Critter for free. Paired cards mark open occupation symbols, not the only way to obtain or play a card. Other abilities can play cards from the Meadow or grant them for free.
+
+The sourced per-card quantities currently sum to 129, while the official rules list 128 Critter and Construction cards. The individual values are preserved as sourced; treat the total and any odds inferred from it as unverified until checked against the physical deck.
+
+The catalog does not provide Event requirements or values, or a complete game state. Treat any future `rarity: null` as unknown rather than inferring it from quantity, name, paired card, or description.
 
 ## Resources
 
