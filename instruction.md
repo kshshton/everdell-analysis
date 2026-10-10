@@ -7,7 +7,7 @@ Use these project files in this order when reconciling their content:
 1. [`cards.json`](cards.json) is the canonical card catalog for names, descriptions, resource costs, printed points, quantities, and paired occupation cards.
 2. This file summarizes gameplay rules and constraints used to interpret card effects.
 3. [`strategies.md`](strategies.md) provides strategic guidance derived from the catalog and rules.
-4. [`engine.md`](engine.md) defines the reusable analysis prompt.
+4. [`prompt.md`](prompt.md) defines the reusable analysis prompt.
 5. [`assumptions.md`](assumptions.md) contains illustrative scenario assumptions and estimates; it must not override the preceding files.
 
 If the card catalog and a rule summary appear inconsistent, preserve the catalog values, identify the conflict, and verify gameplay interpretation against the official rules instead of silently changing either source.

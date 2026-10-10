@@ -1,6 +1,6 @@
 # Assumptions
 
-This is the lowest-priority project document: it is an illustrative analysis, **not a card-data or rules authority, calculated simulation, or proven optimum**. Reconcile its claims against `cards.json` first, then `instruction.md` and `strategies.md`, using the procedure in `engine.md`.
+This is the lowest-priority project document: it is an illustrative analysis, **not a card-data or rules authority, calculated simulation, or proven optimum**. Reconcile its claims against `cards.json` first, then `instruction.md` and `strategies.md`, using the procedure in `prompt.md`.
 
 ## Shared Illustrative Baseline
 

@@ -1,4 +1,4 @@
-# Everdell AI
+# Everdell Analysis
 
 The goal of this project is to produce a transparent Everdell engine analysis in [`assumptions.md`](assumptions.md). The card catalog, rules summary, strategy guide, and analysis prompt are the ordered inputs needed to build and update that result. This is a research and analysis resource, not a playable game or a validated optimizer.
 
@@ -9,7 +9,7 @@ The goal of this project is to produce a transparent Everdell engine analysis in
 | [`cards.json`](cards.json) | Structured catalog of Critter and Construction cards, including costs, printed points, effects, scoring, quantities, and paired occupation cards. |
 | [`instruction.md`](instruction.md) | Gameplay and setup summary, card/rule interpretation, data provenance, and required source workflow. |
 | [`strategies.md`](strategies.md) | Conditional strategic guidance, engine archetypes, seasonal advice, and optimization considerations. |
-| [`engine.md`](engine.md) | Reusable analysis prompt for estimating and comparing engines, with score-accounting safeguards and Mermaid diagrams. |
+| [`prompt.md`](prompt.md) | Reusable analysis prompt for estimating and comparing engines, with score-accounting safeguards and Mermaid diagrams. |
 | [`assumptions.md`](assumptions.md) | The engine-analysis output: shared scenario assumptions, engine comparisons, estimates, diagrams, and recommendations. Estimates are illustrative, not authoritative facts or verified simulation results. |
 
 ## Required workflow
@@ -20,7 +20,7 @@ Follow this sequence to produce or revise the engine analysis:
 flowchart TD
     A["cards.json<br/>Canonical card data"] --> B["instruction.md<br/>Rules and interpretation"]
     B --> C["strategies.md<br/>Strategy derived from data and rules"]
-    C --> D["engine.md<br/>Analysis method and requirements"]
+    C --> D["prompt.md<br/>Analysis method and requirements"]
     D --> E["assumptions.md<br/>Engine analysis and results"]
 ```
 
@@ -51,7 +51,7 @@ The catalog does not include Event requirements or rewards, nor does this reposi
 
 ## Using the analysis prompt
 
-Use [`engine.md`](engine.md) to create or update the analysis in [`assumptions.md`](assumptions.md). Compare the specified engine archetypes against a common, explicit baseline. Use an actual game state when available; otherwise, use a clearly labeled illustrative scenario and do not imply that named cards are guaranteed to appear. Show score arithmetic, resource constraints, city-space and worker costs, and distinguish gross city score from incremental engine value. Keep estimates transparent and conditional rather than presenting them as verified scores or an optimum.
+Use [`prompt.md`](prompt.md) to create or update the analysis in [`assumptions.md`](assumptions.md). Compare the specified engine archetypes against a common, explicit baseline. Use an actual game state when available; otherwise, use a clearly labeled illustrative scenario and do not imply that named cards are guaranteed to appear. Show score arithmetic, resource constraints, city-space and worker costs, and distinguish gross city score from incremental engine value. Keep estimates transparent and conditional rather than presenting them as verified scores or an optimum.
 
 ## Updating the project
 
